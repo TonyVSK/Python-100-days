@@ -21,49 +21,7 @@ resources = resource
 # print(cappuccino)
 
 
-def coins_in_machine(drink, resources, drinks, penny=0, nickel=0, dime=0, quarter=0):
-    total = penny/100 + nickel/20 + dime/10 + quarter/4
-    if drink == 'espresso':
-        if total - 0.5 <0:
-            print('Sorry no enought money, take back')
-            update = 0
-        if total -0.5 == 0:
-            print('There is your drink')
-            update = 1
-        if total - 0.5 > 0:
-            print(f"there is your drink, take your change of {total-0.5}")
-            total 
-            update = 1
 
-    if drink == 'latte':
-        if total - 1 <0:
-            print('Sorry no enought money, take back')
-            update = 0
-        if total -1 == 0:
-            print('There is your drink')
-            update = 1
-        if total - 1 > 0:
-            print(f"there is your drink, take your change of {total-1}")
-            update = 1
-
-    if drink == 'cappuccino':
-        if total - 1.5 <0:
-            print('Sorry no enought money, take back')
-            update = 0
-        if total -1.5 == 0:
-            print('There is your drink')
-            update = 1
-        if total - 1.5 > 0:
-            print(f"there is your drink, take your change of {total-1.5}")
-            update = 1
-    if update == 0:
-        return False
-    if update == 1:
-        resources['water'] = resources['water'] - drinks['water']
-        if len(drinks) != 2:
-            resources['milk'] = resources['milk'] - drinks['milk']
-        resources['coffee'] = resources['coffee'] - drinks['coffee']        
-        return True
 
 
 
@@ -88,6 +46,41 @@ def verifier(drink, resources):
     return True
 
 
+def coins_total(pennies, nickels, dimes, quarters):
+    total = pennies/100 + nickels/20 + dimes/10 + quarters/4
+    return total
+
+
+def verifyMachineCoins(totalCoins, drink, resources, user, profit):
+    if user == 'espresso':
+        cost = 0.5
+    if user == 'latte':
+        cost = 1
+    if user == 'cappuccino':
+        cost = 1.5
+    
+    if totalCoins - cost < 0:
+        print('Sorry, no enought cash')
+        machineMoney = 0
+    if totalCoins - cost == 0:
+        print(f'there is your {user}')
+        machineMoney = cost
+    if totalCoins - cost > 0:
+        if profit >= (totalCoins-cost):
+            print(f'There is your {user}, take ${totalCoins - cost} back')
+            machineMoney = cost
+        else:
+            print('Sorry, the machine has no enought cash to return, take your money back')
+            machineMoney = 0            
+    
+    return machineMoney
+
+
+def ingredientsMachine(drink, resources):
+    resources['water'] = resources['water'] - drink['water']
+    if len(drink) != 2:
+        resources['milk'] = resources['milk'] - drink['milk']
+    resources['coffee'] = resources['coffee'] - drink['coffee']
 
 status = 'on'
 
@@ -106,6 +99,7 @@ while status =='on':
         print(f"Water: {resources['water']}")
         print(f"Milk: {resources['milk']}")
         print(f"Coffee: {resources['coffee']}")
+        print(f'Machine money: {profit}')
         continue
 
     # 4. Check resources sufficient?
@@ -123,8 +117,11 @@ while status =='on':
         nickels = int(input ('How many nickels do you want to insert: '))
         dimes = int(input('How many dimes do you want to input: '))
         quarters = int(input('How many quarters do you want to input: '))
-        coins_in_machine(user, resources, drink, pennies, nickels, dimes, quarters)
+        totalCoins = coins_total(pennies, nickels, dimes, quarters)
+
         
-
-
+        machineMoney = verifyMachineCoins(totalCoins, drink, resources, user, profit)
+        if machineMoney != 0:
+            profit += machineMoney
+            ingredientsMachine(drink, resources)
 
