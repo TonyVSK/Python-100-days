@@ -124,4 +124,3 @@ while status =='on':
         if machineMoney != 0:
             profit += machineMoney
             ingredientsMachine(drink, resources)
-
