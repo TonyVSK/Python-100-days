@@ -18,7 +18,7 @@ def move_right():
 
 
 def move_back():
-    tim.right(180)
+    tim.backward(10)
 
 
 
