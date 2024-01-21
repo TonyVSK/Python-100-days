@@ -25,6 +25,14 @@ starting_positions = [(0, 0),(-20, 0),(-40, 0)]
 
 snake = Snake()
 
+
+# 3. Control the snake
+screen.listen() #it will able to screen understand buttons being pressed
+screen.onkey(snake.up, 'Up')
+screen.onkey(snake.down, 'Down')
+screen.onkey(snake.left,'Left')
+screen.onkey(snake.right, 'Right')
+
 # 2. Move the snake
     
 game_is_on = True
