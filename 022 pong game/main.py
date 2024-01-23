@@ -16,10 +16,20 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor('black')
 screen.title('My pong game')
-screen.tracer(0)
-screen.update()
+# screen.tracer(0)
+# screen.update()
 
 # 2. Create and move a paddle
+paddle1 = Paddle(-260, 0)
+# 3. Control the snake
+screen.listen() # it will able to screen understand buttons being pressed with up, down, left and right
+screen.onkey(paddle1.up, 'Up')
+screen.onkey(paddle1.down, 'Down')
+# # with w, a, s, d buttons
+# screen.onkey(snake.up, 'w')
+# screen.onkey(snake.down, 's')
+# screen.onkey(snake.left,'a')
+# screen.onkey(snake.right, 'd')
 
 
 screen.exitonclick()
