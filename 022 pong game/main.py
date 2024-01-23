@@ -20,7 +20,7 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor('black')
 screen.title('My pong game')
-
+# middle line definitions:
 line = Turtle()
 line.hideturtle()
 line.penup()
@@ -54,14 +54,19 @@ screen.onkey(paddle2.down, 'Down')
 ball = Ball()
 direction = randint(1, 2) # 1 = right, 2 = left
 ball.direction(direction)
+screen.update()
 game_is_on = True
 
 # 8. Keep score
 scoreboard1 = Scoreboard(1)
 scoreboard2 = Scoreboard(2)
 
+
+
 while game_is_on == True:
+    
     ball.move()
+    
 # 5. Detect collision with walls
     if ball.ycor() > 260 or ball.ycor() < -260:  # considerando uma pequena margem para o teto/chão
         new_angle = 360 - ball.heading()
@@ -94,8 +99,8 @@ while game_is_on == True:
         ball.speed('slowest')
         # 8. change score
         scoreboard2.newScore()
-
-
+    
+    
 
 
 
