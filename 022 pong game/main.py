@@ -21,15 +21,16 @@ screen.title('My pong game')
 
 # 2. Create and move a paddle
 paddle1 = Paddle(-260, 0)
-# 3. Control the snake
 screen.listen() # it will able to screen understand buttons being pressed with up, down, left and right
-screen.onkey(paddle1.up, 'Up')
-screen.onkey(paddle1.down, 'Down')
-# # with w, a, s, d buttons
-# screen.onkey(snake.up, 'w')
-# screen.onkey(snake.down, 's')
-# screen.onkey(snake.left,'a')
-# screen.onkey(snake.right, 'd')
+screen.onkey(paddle1.up, 'w')
+screen.onkey(paddle1.down, 's')
+
+
+
+# 3. Create another paddle
+paddle2 = Paddle(260, 0)
+screen.onkey(paddle2.up, 'Up')
+screen.onkey(paddle2.down, 'Down')
 
 
 screen.exitonclick()
