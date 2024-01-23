@@ -12,6 +12,7 @@ from turtle import Screen
 from paddle import Paddle
 from ball import Ball
 from random import randint
+from time import sleep
 
 # 1. Create the screen
 screen = Screen()
@@ -58,5 +59,17 @@ while game_is_on == True:
         else:
             direction = 1
             ball.direction(direction)
+
+# 7. Detect when paddle misses
+    if ball.xcor()>270:
+        sleep(1)
+        ball.speed('fastest')
+        ball.goto(0, 0)
+        ball.speed('slowest')
+    if ball.xcor()<-270:
+        sleep(1)
+        ball.speed('fastest')
+        ball.goto(0, 0)
+        ball.speed('slowest')
 
 screen.exitonclick()
