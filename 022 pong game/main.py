@@ -8,9 +8,10 @@
 # 7. Detect when paddle misses
 # 8. Keep score
 
-from turtle import Screen
+from turtle import Screen, Turtle
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 from random import randint
 from time import sleep
 
@@ -19,6 +20,19 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor('black')
 screen.title('My pong game')
+
+line = Turtle()
+line.hideturtle()
+line.penup()
+line.speed('fastest')
+line.left(90)
+line.color('white')
+line.goto(0, -300)
+for i in range(0, 16):
+    line.pendown()
+    line.forward(20)
+    line.penup()
+    line.forward(20)
 # screen.tracer(0)
 # screen.update()
 
@@ -41,6 +55,11 @@ ball = Ball()
 direction = randint(1, 2) # 1 = right, 2 = left
 ball.direction(direction)
 game_is_on = True
+
+# 8. Keep score
+scoreboard1 = Scoreboard(1)
+scoreboard2 = Scoreboard(2)
+
 while game_is_on == True:
     ball.move()
 # 5. Detect collision with walls
@@ -66,10 +85,19 @@ while game_is_on == True:
         ball.speed('fastest')
         ball.goto(0, 0)
         ball.speed('slowest')
+        # 8. change score
+        scoreboard1.newScore()
     if ball.xcor()<-270:
         sleep(1)
         ball.speed('fastest')
         ball.goto(0, 0)
         ball.speed('slowest')
+        # 8. change score
+        scoreboard2.newScore()
+
+
+
+
+
 
 screen.exitonclick()
