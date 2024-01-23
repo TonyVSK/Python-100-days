@@ -8,8 +8,9 @@
 # 7. Detect when paddle misses
 # 8. Keep score
 
-from turtle import Turtle, Screen
+from turtle import Screen
 from paddle import Paddle
+from ball import Ball
 
 # 1. Create the screen
 screen = Screen()
@@ -32,5 +33,8 @@ paddle2 = Paddle(260, 0)
 screen.onkey(paddle2.up, 'Up')
 screen.onkey(paddle2.down, 'Down')
 
+
+# 4. Create the ball and make it move
+ball = Ball()
 
 screen.exitonclick()
