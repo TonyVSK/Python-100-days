@@ -11,11 +11,9 @@ class Ball(Turtle):
         self.color('blue')
         self.speed('slowest')
         self.shapesize(stretch_len=0.5, stretch_wid=0.5)
-        self.move()
 
     
-    def move(self):
-        newValue = randint(1, 2)
+    def direction(self, newValue):
         if newValue == 1:
             self.speed('fastest')
             self.setheading(randint(-45, 45))
@@ -24,5 +22,6 @@ class Ball(Turtle):
             self.speed('fastest')
             self.setheading(randint(135, 225))
             self.speed('slowest')
-        while True:
-                self.forward(20)
+        
+    def move(self):
+        self.forward(20)

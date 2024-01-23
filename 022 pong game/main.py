@@ -11,6 +11,7 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from random import randint
 
 # 1. Create the screen
 screen = Screen()
@@ -36,5 +37,26 @@ screen.onkey(paddle2.down, 'Down')
 
 # 4. Create the ball and make it move
 ball = Ball()
+direction = randint(1, 2) # 1 = right, 2 = left
+ball.direction(direction)
+game_is_on = True
+while game_is_on == True:
+    ball.move()
+# 5. Detect collision with walls
+    if ball.ycor() > 260 or ball.ycor() < -260:  # considerando uma pequena margem para o teto/chão
+        new_angle = 360 - ball.heading()
+        ball.speed('fastest')
+        ball.setheading(new_angle)
+        ball.speed('slowest')
+        ball.forward(10)
+
+# 6. Detect collision with paddles
+    if paddle1.distance(ball)<40 or paddle2.distance(ball)<40:
+        if direction == 1:
+            direction = 2
+            ball.direction(direction)
+        else:
+            direction = 1
+            ball.direction(direction)
 
 screen.exitonclick()
