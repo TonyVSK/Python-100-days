@@ -8,7 +8,7 @@
 # 8. Create end game if turtle colides with squares
 
 
-from turtle import Screen, Turtle
+from turtle import Screen
 from timmy import Timmy
 from squares import Squares
 
@@ -26,7 +26,13 @@ screen.listen()
 screen.onkey(timmy.up, 'Up')
 screen.onkey(timmy.down, 'Down')
 
-# 4. Create random squares moving
-squares = Squares()
+# 4 and 5. Create random squares moving
+squares = []
+i = 0
+while True:
+    square = Squares()
+    square.moveTurtle()
+    squares.append(square)
+    for square in squares:
+        square.moveTurtle()
 
-screen.exitonclick()
