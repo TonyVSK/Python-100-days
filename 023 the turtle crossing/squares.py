@@ -23,18 +23,13 @@ class Squares(Turtle):
 
     
     def moveTurtle(self):
-        self.new_segment.speed(1)
+        self.new_segment.speed(5)
         self.new_segment.forward(-20)
-    # def create_squares(self):
-
-        
-    #     for i in range(0, 3):
-    #         self.add_segment()
-    #         self.xposition += 20
-    #     while True:    
-    #         for segment in self.segments:
-    #             segment.forward(-20)
-    #             segment.speed('slow')
 
 
+    def get_position(self):
+        return self.new_segment.pos()
+    
 
+    def get_xcord(self):
+        return self.new_segment.xcor()
