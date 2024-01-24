@@ -1,5 +1,5 @@
 from turtle import Screen, Turtle
-
+from timmy import Timmy
 # 1. Create screen
 # 2. Create the turtle and the position
 # 3. Make turtle move up or down
@@ -12,19 +12,11 @@ from turtle import Screen, Turtle
 screen = Screen()
 screen.bgcolor('white')
 screen.setup(width=600, height=600)
-screen.title('My pong game')
+screen.title('My Turtle Crossing Game')
 
 
+timmy = Timmy()
 
 
-
-timmy = Turtle()
-timmy.hideturtle()
-timmy.shape('turtle')
-timmy.penup()
-timmy.speed('fastest')
-timmy.left(90)
-timmy.goto(0, -280)
-timmy.showturtle()
 
 screen.exitonclick()
