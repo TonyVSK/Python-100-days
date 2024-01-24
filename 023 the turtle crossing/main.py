@@ -44,12 +44,16 @@ while game_is_on == True:
         if square.get_xcord()<-200:
             squares.remove(square)
             square.hiding()
-        # 6. Create collision between squares and turtle
+        # 6 and 8. Create collision between squares and turtle
         if timmy.distance(square.get_position())<35:
             print("Colisão detectada!")
+            level.endGame()
+            game_is_on = False
             sleep(1)
         # 7. Create level system and make it changes everytime turtle reaches the end
         if timmy.ycor() >= 280:
             level.increaseLevel()
             timmy.goto(0, -280)
             lvl+=1
+
+screen.exitonclick()

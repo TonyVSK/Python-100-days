@@ -16,7 +16,7 @@ class Squares(Turtle):
         self.new_segment.penup()
         self.segmentscolors = COLORS[randint(0, 6)]
         self.new_segment.color(self.segmentscolors)
-        self.yposition = randint(-260, 300)
+        self.yposition = randint(-240, 300)
         self.xposition = 370
         self.new_segment.goto(self.xposition, self.yposition)
         self.new_segment.showturtle()

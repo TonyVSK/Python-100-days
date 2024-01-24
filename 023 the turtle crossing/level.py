@@ -19,3 +19,9 @@ class Level(Turtle):
         self.clear()
         self.write(f'level: {self.levelNow}', align='center', font=('Arial', 20, 'normal'))
         sleep(1)
+
+
+    def endGame(self):
+        self.speed('fastest')
+        self.goto(0, 0)
+        self.write(f'GAME OVER', align='center', font=('Arial', 60, 'normal'))
