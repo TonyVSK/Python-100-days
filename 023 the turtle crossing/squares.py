@@ -11,13 +11,13 @@ class Squares(Turtle):
         self.new_segment = Turtle()
         self.new_segment.hideturtle()
         self.new_segment.shape('square')
-        self.new_segment.shapesize(stretch_wid=1, stretch_len=3)
+        self.new_segment.shapesize(stretch_wid=1, stretch_len=5)
         self.new_segment.speed('fastest')
         self.new_segment.penup()
         self.segmentscolors = COLORS[randint(0, 6)]
         self.new_segment.color(self.segmentscolors)
         self.yposition = randint(-300, 300)
-        self.xposition = 300
+        self.xposition = 340
         self.new_segment.goto(self.xposition, self.yposition)
         self.new_segment.showturtle()
 

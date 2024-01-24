@@ -32,13 +32,13 @@ i = 0
 while True:
     square = Squares()
     square.moveTurtle()
-
-    squares.append(square)
+    while len(squares)<10:
+        squares.append(square)
     for square in squares:
         square.moveTurtle()
         if square.get_xcord()<-300:
             squares.remove(square)
         # 6. Create collision between squares and turtle
-        if timmy.distance(square.get_position())<30:
+        if timmy.distance(square.get_position())<35:
             print("Colisão detectada!")
             sleep(1)
