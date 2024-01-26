@@ -19,5 +19,13 @@
 
 import pandas as pd
 data = pd.read_csv("weather_data.csv")
-print(data)
-print(data['temp'])
+
+
+maxTemp = 0
+
+for temperature in data.temp:
+    if temperature>maxTemp:
+        maxTemp = temperature
+
+print(data[data.temp == maxTemp])
+print(data[data.temp == data.temp.max()])
