@@ -21,11 +21,18 @@ import pandas as pd
 data = pd.read_csv("weather_data.csv")
 
 
-maxTemp = 0
 
-for temperature in data.temp:
-    if temperature>maxTemp:
-        maxTemp = temperature
+# Create data in a row
+# print(data[data.temp == maxTemp])
+# print(data[data.temp == data.temp.max()])
 
-print(data[data.temp == maxTemp])
-print(data[data.temp == data.temp.max()])
+
+# Create a dataframe from scratch
+data_dict = {
+    "students": ["Amy", "James", "Angela"],
+    "scores": [76, 56, 65]
+}
+
+data=pd.DataFrame(data_dict)
+print(data)
+data.to_csv("new_data.csv")
