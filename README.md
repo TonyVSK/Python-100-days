@@ -9,6 +9,8 @@ The "Python 100 Days" challenge is designed to help with the continuous developm
 
 ## Projects
 
+The projects can be found in [Python 100 days projects folder](./python%20100%20days%20projects)
+
 Here's a list of projects you'll find in this repository:
 
 - `001` - Band Name Generator: A simple script to combine user inputs to generate a band name.
