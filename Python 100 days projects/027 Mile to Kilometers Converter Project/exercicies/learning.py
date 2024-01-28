@@ -1,5 +1,4 @@
 from tkinter import *
-from time import sleep
 
 # equivalent to screen class in turtle module
 window = Tk()
