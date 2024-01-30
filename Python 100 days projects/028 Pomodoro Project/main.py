@@ -15,18 +15,40 @@ LONG_BREAK_MIN = 20
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 def start_counter():
+    global reps
+    global timer_text
+    reps += 1
     
-    count_down(WORK_MIN*60)
-    count_down(SHORT_BREAK_MIN*60)
+
+    work_sec = WORK_MIN*60
+    short_break_sec = SHORT_BREAK_MIN*60
+    long_break_sec = LONG_BREAK_MIN*60    
+
+    if reps % 8 == 0:
+        count_down(long_break_sec)
+        Timer_text.config(text="Break", fg=RED)
+    elif reps % 2 == 0:
+        count_down(short_break_sec)
+        Timer_text.config(text="Break", fg=PINK)
+    else:
+        count_down(work_sec)
+        Timer_text.config(text="Work", fg=GREEN)
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 def count_down(counter):
     counter_min = math.floor(counter/60)
-    counter_seg = counter%60
-    canvas.itemconfig(timer_text, text=f'{counter_min}:{counter_seg}')
+    counter_sec = counter%60
+    if counter_sec < 10:
+        counter_sec = f"0{counter_sec}"
+    if counter_min < 10:
+        counter_min = f"0{counter_min}"
+    canvas.itemconfig(timer_text, text=f'{counter_min}:{counter_sec}')
     if counter > 0:
         window.after(1000, count_down, counter-1)
+    else:
+        start_counter()
     
 # ---------------------------- UI SETUP ------------------------------- #
+reps = 0
 window = Tk()
 window.title("Pomodoro")
 window.config(padx=100, pady=50, bg=YELLOW)
