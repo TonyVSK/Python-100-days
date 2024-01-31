@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 import random
-
+import json
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 #Password Generator Project
 def generate_password():
@@ -32,17 +32,34 @@ def activeFunctionFile():
     website = website_input.get()
     email = email_input.get()
     password = password_input.get()
+    new_data = {
+        website:{
+            "email": email,
+            "password": password
+        }
+    }
 
     is_ok = messagebox.askokcancel(title=website, message=f'These are the details entered: \nEmail: {email}\nPassword: {password}\n\nIs it ok to save?')
 
     if (is_ok) and (website and email and password):
+        try:
+            with open("data.json", "r") as file:
+                data  =json.load(file)
+                data.update(new_data)
 
-
-        with open("data.txt", "a") as file:
-            file.write(f"\nWebsite: {website}\nEmail/Username: {email}\nPassword: {password}\n\n")
-        website_input.delete(0, END)
-        email_input.delete(0, END)
-        password_input.delete(0, END)
+            with open("data.json", "w") as file:
+                json.dump(data,file, indent=4)    
+                website_input.delete(0, END)
+                email_input.delete(0, END)
+                password_input.delete(0, END)
+        except json.decoder.JSONDecodeError:
+            with open("data.json", "w") as file:
+                json.dump(new_data, file, indent=4)
+                website_input.delete(0, END)
+                email_input.delete(0, END)
+                password_input.delete(0, END)
+        else:
+            pass
 
     else:
         if len(website) == 0 or len(password) ==0:

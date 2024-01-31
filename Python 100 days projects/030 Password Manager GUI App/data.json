@@ -1,0 +1,14 @@
+{
+    "github.com": {
+        "email": "elonmusk@email.com",
+        "password": "QWERASDF"
+    },
+    "twitter.com": {
+        "email": "elonmusk@email.com",
+        "password": "1234QWER"
+    },
+    "gmail.com": {
+        "email": "elonmusk@email.com",
+        "password": "QWER1234"
+    }
+}
