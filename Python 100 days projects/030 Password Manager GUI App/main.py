@@ -92,7 +92,24 @@ website_text.grid(row=1, column=0)
 website_input = Entry(width=32)
 website_input.grid(row =1, column=1)
 # Search button
-search_button = Button(text="Search", highlightthickness=0, bg='white', command=generate_password, width=15)
+def search_fuction():
+    usersearching = website_input.get()
+    try:
+        with open("data.json", "r") as file:
+            data = json.load(file)
+            if usersearching in data:
+                messagebox.showinfo(title='Website Information', message=f"{usersearching}\nEmail: {data[usersearching]['email']}\nPassword: {data[usersearching]['password']}")
+                print(data[usersearching])
+            else:
+                print('error')
+    except:
+            print('error')
+    else:
+        pass
+
+
+
+search_button = Button(text="Search", highlightthickness=0, bg='white', command=search_fuction, width=15)
 search_button.grid(row=1, column=2)
 website_input.focus()
 
