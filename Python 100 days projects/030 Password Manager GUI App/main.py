@@ -58,6 +58,12 @@ def activeFunctionFile():
                 website_input.delete(0, END)
                 email_input.delete(0, END)
                 password_input.delete(0, END)
+        except FileNotFoundError:
+            with open("data.json", "w") as file:
+                json.dump(new_data, file, indent=4)
+                website_input.delete(0, END)
+                email_input.delete(0, END)
+                password_input.delete(0, END)
         else:
             pass
 
@@ -83,15 +89,18 @@ canvas.grid(row=0, column=1)
 website_text = Label(text="Website:", font=('Arial', 12), bg='white')
 website_text.grid(row=1, column=0)
 # Entry
-website_input = Entry(width=50)
-website_input.grid(row =1, column=1, columnspan=2)
+website_input = Entry(width=32)
+website_input.grid(row =1, column=1)
+# Search button
+search_button = Button(text="Search", highlightthickness=0, bg='white', command=generate_password, width=15)
+search_button.grid(row=1, column=2)
 website_input.focus()
 
 # EMAIL/USERNAME DEFINITIONS DEFINITIONS
 email_text = Label(text="Email/Username:", font=('Arial', 12), bg='white')
 email_text.grid(row=2, column=0)
 # Entry
-email_input = Entry(width=50)
+email_input = Entry(width=51)
 email_input.grid(row=2, column=1, columnspan=3)
 email_input.focus()
 
