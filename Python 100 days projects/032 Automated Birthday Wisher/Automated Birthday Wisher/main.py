@@ -19,4 +19,48 @@
 # HINT: Gmail(smtp.gmail.com), Yahoo(smtp.mail.yahoo.com), Hotmail(smtp.live.com), Outlook(smtp-mail.outlook.com)
 
 
+import pandas
+from random import choice
+import datetime as dt
+import smtplib
 
+
+data = pandas.read_csv("./birthdays.csv")
+person = data.to_dict(orient="records")
+
+
+
+# Defining day of today
+now = dt.datetime.now()
+year = now.year
+month = now.month
+day = now.day
+
+
+# Defining day of someone's birthday
+data = pandas.read_csv("./birthdays.csv")
+person = data.to_dict(orient="records")
+name_of_person = person[0]['name']
+
+if int(person[0]['day']) == int(day):
+    # open txt file
+    with open("./letter_templates/letter_1.txt") as file:
+        text = file.read()
+        novoTexto=text.replace('[NAME]', f'{name_of_person}')
+
+        
+
+
+
+    # # Email to send
+    my_email = "putyouremailhere@email.com"
+    password = "putyourapppasswordhere"
+    # # smtp-mail.outlook.com
+    with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
+        connection.starttls()
+        connection.login(user=my_email, password=password)
+        connection.sendmail(
+            from_addr=my_email, 
+            to_addrs="putyoursecondemailhere@email.com", 
+            msg=f"Subject:Happy birthday!\n\n{novoTexto}"
+        )
