@@ -38,6 +38,17 @@ latitude = float(data["iss_position"]["latitude"])
 
 # 3 steps:
 # 1 and 2. If the ISS is close to current position And it is currently dark
-if (longitude - MY_LONG <5 and longitude -MY_LONG >-5) and (latitude - MY_LAT <5 and latitude -MY_LAT >-5) and (time_now>18):
-    pass 
-    # 3. trigger email
+while True:
+    if (longitude - MY_LONG <5 and longitude -MY_LONG >-5) and (latitude - MY_LAT <5 and latitude -MY_LAT >-5) and (time_now>=sunset_hour):
+        # 3. trigger email
+        my_email = "email1@email.com"
+        password = ""
+        # # smtp-mail.outlook.com
+        with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
+            connection.starttls()
+            connection.login(user=my_email, password=password)
+            connection.sendmail(
+                from_addr=my_email, 
+                to_addrs="email2@email.com", 
+                msg=f"Subject: It is the time!\n\nLook up, the ISS satellite is passing near you!"
+            )
