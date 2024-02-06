@@ -11,10 +11,11 @@ for question in question_data:
     question_bank.append(new_question)
 
 
-quiz = QuizBrain(question_bank)
 
-from random import randint
-quiz_ui = QuizInterdace(question_data[randint(0, len(question_data))]["question"])
+# from random import randint
+# question_data[randint(0, len(question_data))]["question"]
+quiz = QuizBrain(question_bank)
+quiz_ui = QuizInterdace(quiz)
 
 
 # while quiz.still_has_questions():
