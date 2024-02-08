@@ -5,52 +5,122 @@ APIKEY = key
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
-## STEP 1: Use https://www.alphavantage.co
-# When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
+# =======================================================================================================================================
+# ## STEP 1: Use https://www.alphavantage.co
+# # When STOCK price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
+
 import requests
-import datetime as dt
-# Defining day of week
-now = dt.datetime.now()
-day = now.day
-month = now.month
-year = now.year
-# print(day, month, year)
-# # "2024-02-07 19:00:00"
-# print(now)
 
-
-# replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
-url = f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=60min&apikey={APIKEY}'
-r = requests.get(url)
+endpoint = 'https://www.alphavantage.co/query'
+tesla_params = {
+    'function': 'TIME_SERIES_INTRADAY',
+    'symbol': STOCK,
+    'interval': '60min',
+    'apikey': APIKEY
+}
+r = requests.get(endpoint, params=tesla_params)
 data = r.json()
+
 my_dict = data["Time Series (60min)"]
+
+
 lista = []
 for item in my_dict:
     lista.append(item)
 
+
+
+# DATE TO USE: THE LAST ONE
 updated_stock = f"{lista[0]}"
+# VALUE OF THE SHARE AT THIS DATE
+value_of_share = float(my_dict[updated_stock]['1. open'])
+print(f'Last Date: {updated_stock}')
+print(f'Value of the stock: {value_of_share}')
 
-print(my_dict[updated_stock])
-print(day, month, year)
-# # "2024-02-07 19:00:00"
-print(now)
-# print(data["Time Series (60min)"][0])
 
+print("\n\n")
+# I NEED MY TODAY DATE AND YESTERDAY DATE TO MAKE AN COMPARATIVE
+yesterday_stock = f"{lista[16]}"
+yesterday_value_of_share = float(my_dict[yesterday_stock]['1. open'])
+print(f'24 hours ago: {yesterday_stock}')
+print(f'Value of the stock: {yesterday_value_of_share}')
+
+
+comparating = value_of_share - yesterday_value_of_share
+if comparating <0:
+    if (comparating *(-1)) > (value_of_share/20):
+        print('Bad news, the value decreased :C')
+
+elif comparating > (yesterday_value_of_share/20):
+    print('The value of the stock is bigger now')
+else:
+    print('No big flutuations')
+
+# =======================================================================================================================================
 ## STEP 2: Use https://newsapi.org
 # Instead of printing ("Get News"), actually get the first 3 news pieces for the COMPANY_NAME. 
+from apikey import key2
+APIKEY2 = key2
 
-## STEP 3: Use https://www.twilio.com
-# Send a seperate message with the percentage change and each article's title and description to your phone number. 
+updated_stock = '2024-02-07'
+
+endpoint2 = 'https://newsapi.org/v2/everything'
+tesla_params2 = {
+    'q' : 'Tesla',
+    'from': updated_stock,
+    'sortBy': 'popularity',
+    'apiKey': APIKEY2
+
+}
+r2 = requests.get(endpoint2, params=tesla_params2)
+data2 = r2.json()
+
+my_dict2 = [data2['articles'][0]['title'], data2['articles'][1]['title'], data2['articles'][2]['title']]
 
 
-#Optional: Format the SMS message like this: 
-"""
-TSLA: 🔺2%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-or
-"TSLA: 🔻5%
-Headline: Were Hedge Funds Right About Piling Into Tesla Inc. (TSLA)?. 
-Brief: We at Insider Monkey have gone over 821 13F filings that hedge funds and prominent investors are required to file by the SEC The 13F filings show the funds' and investors' portfolio positions as of March 31st, near the height of the coronavirus market crash.
-"""
+print(my_dict2[0])
+print(my_dict2[1])
+print(my_dict2[2])
 
+# =======================================================================================================================================
+## STEP 3: Use email protocol module
+# Send a seperate email with the percentage change and each article's title and description to your email. 
+import smtplib
+from apikey import email, passwordemail, email2
+
+my_email = email
+password = passwordemail
+# # smtp-mail.outlook.com
+
+if comparating <0:
+    if (comparating *(-1)) > (value_of_share/20):
+        with smtplib.SMTP(my_email, port=587) as connection:
+            connection.starttls()
+            connection.login(user=my_email, password=password)
+            connection.sendmail(
+                from_addr=my_email, 
+                to_addrs=email2, 
+                msg=f"Subject: Bad news, the value decreased :C\n\n{my_dict[0]}\n{my_dict[1]}\n{my_dict[2]}"
+            )
+        
+
+elif comparating > (yesterday_value_of_share/20):
+
+    with smtplib.SMTP(my_email, port=587) as connection:
+        connection.starttls()
+        connection.login(user=my_email, password=password)
+        connection.sendmail(
+            from_addr=my_email, 
+            to_addrs=email2, 
+            msg=f"Subject: Good news: shares increased\n\n{my_dict[0]}\n{my_dict[1]}\n{my_dict[2]}"
+        )
+
+    
+with smtplib.SMTP(my_email, port=587) as connection:
+    connection.starttls()
+    connection.login(user=my_email, password=password)
+    connection.sendmail(
+        from_addr=my_email, 
+        to_addrs=email2, 
+        msg=f"Subject: It is the time!\n\nLook up, the ISS satellite is passing near you!"
+    )
