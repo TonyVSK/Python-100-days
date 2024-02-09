@@ -39,3 +39,14 @@ headers = {
 
 response = requests.post(url=graph_endpoint, json=graph_params, headers=headers)
 print(response.text)
+
+# 3. Post value to the graph
+pixel_endpoint = f"{graph_endpoint}/{graph_params['id']}"
+pixel_params = {
+    'date': '20240209', # Don't forget to update everytime you make a post 
+    'quantity': '25'
+}
+
+
+response = requests.post(url=pixel_endpoint, json=pixel_params, headers=headers)
+print(response.text)
