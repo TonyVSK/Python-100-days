@@ -1,5 +1,6 @@
 import requests
 from usefulkeys import token, username
+from datetime import datetime
 
 
 
@@ -42,8 +43,9 @@ print(response.text)
 
 # 3. Post value to the graph
 pixel_endpoint = f"{graph_endpoint}/{graph_params['id']}"
+today = datetime.now()
 pixel_params = {
-    'date': '20240209', # Don't forget to update everytime you make a post 
+    'date': today.strftime("%Y%m%d"), # Don't forget to update everytime you make a post 
     'quantity': '25'
 }
 
