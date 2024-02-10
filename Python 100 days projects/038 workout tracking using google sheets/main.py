@@ -55,15 +55,13 @@ print(response2.text)
 # Sheety expects your record to be nested in a singular root property named after your sheet. For example if your endpoint is named emails, 
 # nest your record in a property called email.
 # POST REQUEST
-from usefulkeys import userid, email
+from usefulkeys import authorization
 headers = {
-    "Content-Type": "application/json",
-    # Se a sua API Sheety requer autenticação, descomente e ajuste a linha abaixo
-    # "Authorization": "Bearer SEU_TOKEN_DE_ACESSO"
+    "Authorization": f"Bearer {authorization}"
 }
 
-data = {
-    'workouts': [
+workouts = {
+    'workout': 
         {
             'date': date,
             'time': hour,
@@ -71,10 +69,13 @@ data = {
             'duration': duration,
             'calories': calories
         }
-    ]
+    
 } 
 
-response3 = requests.post(url=sheety_endpoint, json=data, headers=headers)
+response3 = requests.post(url=f'https://api.sheety.co/{username}/{projectName}/{sheetName}', json=workouts, headers=headers)
+print(response3.text)
+response4 = requests.get(url=f'https://api.sheety.co/{username}/{projectName}/{sheetName}')
+print(response4.text)
 
 print(response3.text)
 print(response3)
