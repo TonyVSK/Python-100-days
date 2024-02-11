@@ -20,22 +20,33 @@ import requests
 import json
 from datetime import datetime
 
+
+cities_list = ['Paris', 'Berlin', 'Tokyo', 'Sydney', 'Istanbul', 'Kuala Lumpur', 'New York', 'San Francisco', 'Cape Town']
+
 # API FLIGHT
+def code_city(city):
+    
 
-flight_endpoint = 'https://api.tequila.kiwi.com/locations/query'
+    flight_endpoint = 'https://api.tequila.kiwi.com/locations/query'
 
-headers = {
-    'apikey': flight_key
-}
+    headers = {
+        'apikey': flight_key
+    }
 
-flight_params = {
-    'term': 'PRG',
-    'location_types': 'airport'
-}
+    flight_params = {
+        'term': city,
+        #'location_types': 'city',
+    }
 
 
 
-response = requests.get(url=flight_endpoint, headers=headers, params=flight_params)
-data = response.json()
-print(data)
-print(response)
+    response = requests.get(url=flight_endpoint, headers=headers, params=flight_params)
+    data = response.json()
+
+    print(data['locations'][0]['code'])
+    print(response)
+
+
+
+for city in cities_list:
+    code_city(city)
