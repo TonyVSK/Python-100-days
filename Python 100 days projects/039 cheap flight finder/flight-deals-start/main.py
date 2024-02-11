@@ -3,15 +3,15 @@
 
 # STEP-BY-STEP
 
-# 1 - Commit the file                                                   . OK
+# 1 - commit the file                                                   . OK
 # 2 - find flight api                                                   . OK
 # 3 - test sheety to populate the pending column                        . OK
 # 4 - test communication with flight api                                . OK
-# 5 - use flight information from the flight api to compare low prices  .
+# 5 - use flight information from the flight api to compare low prices  . OK
 # 6 - if prices are lower, success                                      .
 # 7 - test email api                                                    .
 # 8 - activate email api when step 6 is satisfied                       .
-
+# 9 - make an organization in classes                                   .
 
 
 # =========================================================================================================================
@@ -92,3 +92,26 @@ iD = 2
 for city in cities_code:
     sheety_api(city, iD)
     iD += 1
+
+
+
+
+# =========================================================================================================================
+# =========================================================================================================================
+
+from usefulkeys import key2
+
+search_endpoint2 = 'https://api.tequila.kiwi.com/v2/search'
+headers = {'apikey': key2}
+    
+search_params = {
+    'fly_from': 'SAO',
+    'fly_to': 'PRG',
+    'date_to': '03/08/2024',
+}
+
+response2 = requests.get(url=search_endpoint2, headers=headers, params=search_params)
+data2 = response2.json()
+
+for flight in data2['data']:
+    print(f"Preço: {flight['price']}, Companhia aérea: {flight['airlines'][0]}, Data de partida: {flight['local_departure'][:10]}")
