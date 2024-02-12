@@ -142,35 +142,6 @@ for city_code, price_list in cities_values.items():
     print(f'{city_code}: {price_list}')
 # =========================================================================================================================
 # =========================================================================================================================
-import smtplib
-from usefulkeys import email, passwordemail, email2
-
-my_email = email
-password = passwordemail
-# # smtp-mail.outlook.com
-
-
-# I need the values of the sheets to compare 
-response_sheet = requests.get(url=f'https://api.sheety.co/{username}/{projectName}/{sheetName}')
-sheet_data = response_sheet.json()
-
-# Saving prices at the sheets in a dict with the key of the city
-sheet_prices = {entry['IATACode']: entry['Lowest Price'] for entry in sheet_data['prices']}
-
-# key and value
-for city_code, price_list in cities_values.items():
-    for price in price_list:
-        
-        if city_code in sheet_prices and price < sheet_prices[city_code]:
-            print(f'There is a lower value for {city_code}: {price} < {sheet_prices[city_code]}')
-            with smtplib.SMTP(my_email, port=587) as connection:
-                connection.starttls()
-                connection.login(user=my_email, password=password)
-                connection.sendmail(
-                    from_addr=my_email, 
-                    to_addrs=email2, 
-                    msg=f"Subject: Good news! the value decreased to flight\n\nThere is a lower value for {city_code}: {price} < {sheet_prices[city_code]}"
-                )
-
-
-
+    # convert to class sending cities_values
+from notification_manager import NotificationManager
+NotificationManager(cities_values)
