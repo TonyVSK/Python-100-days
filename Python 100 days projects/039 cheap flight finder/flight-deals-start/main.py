@@ -1,17 +1,9 @@
 #This file will need to use the DataManager,FlightSearch, FlightData, NotificationManager classes to achieve the program requirements.
-
-
-# STEP-BY-STEP
-
-# 1 - commit the file                                                   . OK
-# 2 - find flight api                                                   . OK
-# 3 - test sheety to populate the pending column                        . OK
-# 4 - test communication with flight api                                . OK
-# 5 - use flight information from the flight api to compare low prices  . OK
-# 6 - if prices are lower, success                                      .
-# 7 - test email api                                                    .
-# 8 - activate email api when step 6 is satisfied                       .
-# 9 - make an organization in classes                                   .
+"""
+Unfortunately, the API had to be discontinued because the use of resources was limited and they were all used in testing the code.
+Currently the code only obtains price values ​​for the specified dates, and saves the city codes in a spreadsheet on Google Sheets, 
+in addition to sending an email notification through a third API
+"""
 
 
 # =========================================================================================================================
@@ -84,7 +76,7 @@ def sheety_api(city, iD):
 
     response3 = requests.put(url=f'https://api.sheety.co/{username}/{projectName}/{sheetName}/{iD}', json=prices)
     print(response3.text)
-    response4 = requests.get(url=f'https://api.sheety.co/{username}/{projectName}/{sheetName}')
+    response4 = requests.get(url=f'https://api.sheety.co/{username}/{projectName}/{sheetName}?filter[familyFriendly]=true')
     print(response4.text)
 
 
@@ -98,20 +90,87 @@ for city in cities_code:
 
 # =========================================================================================================================
 # =========================================================================================================================
+def getting_price(city_code):
+    from usefulkeys import key2
 
-from usefulkeys import key2
+    search_endpoint2 = 'https://api.tequila.kiwi.com/v2/search'
+    headers = {'apikey': key2}
+        
+    search_params = {
+        'fly_from': 'LON',
+        'fly_to': city_code,
+        'date_to': '03/08/2024',
+    }
 
-search_endpoint2 = 'https://api.tequila.kiwi.com/v2/search'
-headers = {'apikey': key2}
+    response2 = requests.get(url=search_endpoint2, headers=headers, params=search_params)
+    data2 = response2.json()
+
+
+    pricing = []
+    dating = []
+
+    for flight in data2['data']:
+        price = int(flight['price'])
+        date = flight['local_departure'][:10]
+        pricing.append(price)
+        dating.append(date)
     
-search_params = {
-    'fly_from': 'SAO',
-    'fly_to': 'PRG',
-    'date_to': '03/08/2024',
-}
+    return pricing, dating
 
-response2 = requests.get(url=search_endpoint2, headers=headers, params=search_params)
-data2 = response2.json()
 
-for flight in data2['data']:
-    print(f"Preço: {flight['price']}, Companhia aérea: {flight['airlines'][0]}, Data de partida: {flight['local_departure'][:10]}")
+prices = []
+dates = []
+
+for i in range(0, len(cities_code)):
+    prices2, dates2 = getting_price(cities_code[i])
+    prices.append(prices2)
+    dates.append(dates2)
+
+
+cities_values = { }
+
+
+cities_values = {city_code: [] for city_code in cities_code}
+
+for i in range(len(cities_code)):
+
+    for price in prices[i]:
+        cities_values[cities_code[i]].append(price)
+
+
+for city_code, price_list in cities_values.items():
+    print(f'{city_code}: {price_list}')
+# =========================================================================================================================
+# =========================================================================================================================
+import smtplib
+from usefulkeys import email, passwordemail, email2
+
+my_email = email
+password = passwordemail
+# # smtp-mail.outlook.com
+
+
+# I need the values of the sheets to compare 
+response_sheet = requests.get(url=f'https://api.sheety.co/{username}/{projectName}/{sheetName}')
+sheet_data = response_sheet.json()
+
+# Saving prices at the sheets in a dict with the key of the city
+sheet_prices = {entry['IATACode']: entry['Lowest Price'] for entry in sheet_data['prices']}
+
+# key and value
+for city_code, price_list in cities_values.items():
+    for price in price_list:
+        
+        if city_code in sheet_prices and price < sheet_prices[city_code]:
+            print(f'There is a lower value for {city_code}: {price} < {sheet_prices[city_code]}')
+            with smtplib.SMTP(my_email, port=587) as connection:
+                connection.starttls()
+                connection.login(user=my_email, password=password)
+                connection.sendmail(
+                    from_addr=my_email, 
+                    to_addrs=email2, 
+                    msg=f"Subject: Good news! the value decreased to flight\n\nThere is a lower value for {city_code}: {price} < {sheet_prices[city_code]}"
+                )
+
+
+
