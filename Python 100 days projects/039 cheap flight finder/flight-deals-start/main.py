@@ -2,7 +2,9 @@
 """
 Unfortunately, the API had to be discontinued because the use of resources was limited and they were all used in testing the code.
 Currently the code only obtains price values ​​for the specified dates, and saves the city codes in a spreadsheet on Google Sheets, 
-in addition to sending an email notification through a third API
+in addition to sending an email notification through a third API to tell about lower values
+
+
 """
 
 
@@ -14,77 +16,18 @@ import json
 from datetime import datetime
 
 
-cities_list = ['Paris', 'Berlin', 'Tokyo', 'Sydney', 'Istanbul', 'Kuala Lumpur', 'New York', 'San Francisco', 'Cape Town']
-cities_code = []
+
 # API FLIGHT
-def code_city(city):
-    
-
-    flight_endpoint = 'https://api.tequila.kiwi.com/locations/query'
-
-    headers = {
-        'apikey': flight_key
-    }
-
-    flight_params = {
-        'term': city,
-        #'location_types': 'city',
-    }
-
-
-
-    response = requests.get(url=flight_endpoint, headers=headers, params=flight_params)
-    data = response.json()
-
-    print(data['locations'][0]['code'])
-    cities_code.append(data['locations'][0]['code'])
-
-
-
-for city in cities_list:
-    code_city(city)
+from flight_data import FlightData
+flighting = FlightData
+cities_code = flighting.cities_code
 
 # =========================================================================================================================
 # =========================================================================================================================
-from usefulkeys import username, projectName, sheetName
-sheety_endpoint = f'https://api.sheety.co/{username}/{projectName}/{sheetName}'
-sheety_params = {
-    'username': username,
-    'projectName': projectName,
-    'sheetName': sheetName
-}
-
-response2 = requests.get(url=f'https://api.sheety.co/{username}/{projectName}/{sheetName}')
-print(response2.text)
-
-
-# POST REQUEST
-# from usefulkeys import authorization
-# headers = {
-#     "Authorization": f"Bearer {authorization}"
-# }
-
-
-def sheety_api(city, iD):
-    prices = {
-        'price': 
-            {
-                "iataCode": city,
-            }
-        
-    } 
-
-    response3 = requests.put(url=f'https://api.sheety.co/{username}/{projectName}/{sheetName}/{iD}', json=prices)
-    print(response3.text)
-    response4 = requests.get(url=f'https://api.sheety.co/{username}/{projectName}/{sheetName}?filter[familyFriendly]=true')
-    print(response4.text)
-
-
-iD = 2
-for city in cities_code:
-    sheety_api(city, iD)
-    iD += 1
-
+    # updating sheety API
+from data_manager import DataManager
+# I need to send cities_code
+data = DataManager(cities_code)
 
 
 
