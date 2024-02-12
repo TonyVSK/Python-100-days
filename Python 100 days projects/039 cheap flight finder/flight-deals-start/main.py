@@ -90,58 +90,15 @@ for city in cities_code:
 
 # =========================================================================================================================
 # =========================================================================================================================
-def getting_price(city_code):
-    from usefulkeys import key2
+    # Getting the cities_values
+from flight_search import FlightSearch
 
-    search_endpoint2 = 'https://api.tequila.kiwi.com/v2/search'
-    headers = {'apikey': key2}
-        
-    search_params = {
-        'fly_from': 'LON',
-        'fly_to': city_code,
-        'date_to': '03/08/2024',
-    }
-
-    response2 = requests.get(url=search_endpoint2, headers=headers, params=search_params)
-    data2 = response2.json()
-
-
-    pricing = []
-    dating = []
-
-    for flight in data2['data']:
-        price = int(flight['price'])
-        date = flight['local_departure'][:10]
-        pricing.append(price)
-        dating.append(date)
-    
-    return pricing, dating
-
-
-prices = []
-dates = []
-
-for i in range(0, len(cities_code)):
-    prices2, dates2 = getting_price(cities_code[i])
-    prices.append(prices2)
-    dates.append(dates2)
-
-
-cities_values = { }
-
-
-cities_values = {city_code: [] for city_code in cities_code}
-
-for i in range(len(cities_code)):
-
-    for price in prices[i]:
-        cities_values[cities_code[i]].append(price)
-
-
-for city_code, price_list in cities_values.items():
-    print(f'{city_code}: {price_list}')
+flight = FlightSearch(cities_code)
+cities_values = flight.cities_values
+# I need to get self.cities_values at this class
 # =========================================================================================================================
 # =========================================================================================================================
     # convert to class sending cities_values
 from notification_manager import NotificationManager
+
 NotificationManager(cities_values)
