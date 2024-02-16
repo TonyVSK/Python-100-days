@@ -1,3 +1,23 @@
- html {
-    background:blue
- }
+.color-title{
+    font-weight: normal;
+}
+
+#red{
+    color:red
+}
+
+#blue{
+    color:blue
+}
+
+#orange{
+    color: orange
+}
+
+#green{
+    color: green
+}
+
+#yellow{
+    color: yellow
+}
