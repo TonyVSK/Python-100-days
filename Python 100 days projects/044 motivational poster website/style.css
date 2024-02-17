@@ -1,0 +1,27 @@
+html{
+    background:black;
+}
+
+.text{
+    color:white;
+    text-align: center;
+}
+
+h1{
+    font-family: "Caveat", cursive;
+}
+
+img{
+    border: 5px solid white;
+}
+
+.image{
+
+    margin-left:25%;
+
+    width: 50%;
+}
+
+img{
+    width: 100%;
+}
