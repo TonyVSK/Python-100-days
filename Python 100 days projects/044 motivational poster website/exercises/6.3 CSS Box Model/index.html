@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Box Model</title>
+  <style>
+    /* Write your CSS code here */
+
+  </style>
+</head>
+
+<body>
+
+
+  <!-- TODOs:
+1. Create 3 Boxes using the div element. OK
+2. Set their sizes to 200px heigh by 200px wide. OK
+3. Set different background colors for each of the boxes (I used cadetblue, gold and indianred). OK
+4. Add a paragraph <p> element into the first div and add the following words:
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at sapien porttitor urna elementum lacinia. In
+    id magna pulvinar, ultricies lorem id, vehicula elit. Aliquam eu luctus nisl, vitae pellentesque magna. Phasellus
+    dolor metus, laoreet ac convallis sit amet, efficitur sed dolor. OK
+5. Set the 1st div to have 20px padding all around with a black 10px border. OK
+6. Fix the style of the <p> element to remove all margins. OK
+Hint: Use the CSS inspector in Chrome.
+7. Set the 2nd div to have a 20px border on top and bottom and 10px border left and right. (See goal image) OK
+8. Set the 3rd div to have a 10px border OK
+9. Set the margins for the divs so that each box corner touches the other. (See the goal image)
+-->
+
+
+<div class="div1">
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at sapien porttitor urna elementum lacinia. In
+    id magna pulvinar, ultricies lorem id, vehicula elit. Aliquam eu luctus nisl, vitae pellentesque magna. Phasellus
+    dolor metus, laoreet ac convallis sit amet, efficitur sed dolor.
+  </p>
+</div>
+<div class="div2"></div>
+<div class="div3"></div>
+
+<style>
+    div {
+      height: 200px;
+      width: 200px;
+    }
+    
+    .div1{
+      padding: 20px;
+      border: 10px solid black;
+      background-color: red;
+    }
+
+    .div2{
+      border-width: 20px 10px;
+      border: solid black;
+      background-color: green;
+      margin-left: 260px;
+    }
+
+    .div3{
+      border: 10px solid black;
+      background-color: blue;
+      margin-left: 40px;
+    }
+    
+    p{
+      margin:0;
+    }
+</style>
+
+
+</body>
+
+</html>
