@@ -3,10 +3,7 @@ import requests
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 from keys import clientId, clientSecret
-import requests
 from spotipy.oauth2 import SpotifyOAuth
-from spotipy.oauth2 import SpotifyClientCredentials
-from pprint import pprint
 
 #========================================================================================================================
 # Spotipy configurations
