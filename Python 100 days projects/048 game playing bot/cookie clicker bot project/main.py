@@ -1,5 +1,5 @@
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+from selenium.webdriver.common.by import By         
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -16,7 +16,7 @@ driver.get(URL)
 
 # First button - select idiom
 try:
-    # Espera até que o elemento seja clicável. Ajuste o tempo de espera conforme necessário.
+    # wait until the element show us, adjust to what is better for you.
     idiom = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, '//*[@id="langSelect-PT-BR"]'))
     )
