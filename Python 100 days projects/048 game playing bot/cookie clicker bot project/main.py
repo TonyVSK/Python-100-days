@@ -22,7 +22,7 @@ try:
     )
     idiom.click()
 except Exception:
-    print(f"Erro ao tentar selecionar o idioma: {Exception}")
+    print(f"Error trying to access idiom: {Exception}")
 
 
 # Second button - site cookies
