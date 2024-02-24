@@ -37,15 +37,12 @@ notifications_button.click()
 cookies = driver.find_element(By.XPATH, '//button[contains(string(), "Allow all cookies")]')
 cookies.click()
 
-# like button xpath = '//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[2]/div[4]/button')
-# SELECT APPLY BUTTON
-# try:
-#     apply = WebDriverWait(driver, 10).until(
-#         EC.element_to_be_clickable((By.XPATH, '//*[@id="ember159"]/span'))
-#     )
-#     apply.click()
-# except Exception:
-#     print(f"Error trying to apply job: {Exception}")    
-    
-
-
+# LIKE BUTTON (I just can like 100 profiles per day)
+for i in range(0, 100):
+    try:
+        like_button = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, '//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div[1]/div/div[2]/div[4]/button'))
+        )
+        like_button.click()
+    except Exception:
+        print(f"Error trying to like the profile: {Exception}")
