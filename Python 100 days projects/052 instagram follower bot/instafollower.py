@@ -30,7 +30,10 @@ class InstaFollower:
 
 
     def find_followers(self):
-        ...
+        sleep(5)
+        self.driver.get("https://www.instagram.com/chefsteps/") # you can use whatever page you want here, just insert the link
+        followers_list = self.driver.find_element(By.XPATH, value='//*[@id="mount_0_0_pU"]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/header/section/ul/li[2]/a')
+        followers_list.click()
 
 
     def follow(self):
