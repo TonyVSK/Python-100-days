@@ -37,4 +37,8 @@ class InstaFollower:
 
 
     def follow(self):
-        ...
+        sleep(5)
+        following = self.driver.find_elements(By.CSS_SELECTOR, value=' _acan _acap _acas _aj1- _ap30')
+        for follower in following:
+            follower.click()
+            sleep(2)
