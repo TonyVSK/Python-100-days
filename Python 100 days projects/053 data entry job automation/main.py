@@ -38,7 +38,7 @@ from time import sleep
 from selenium.webdriver.common.keys import Keys
 
 
-URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfGjwLe0zws45o2hwAhCw-BxCiTpgrU6pCLWuK6qej38zfRyg/viewform'
+URL = 'https://docs.google.com/USEYOURDOCSLINKHERE'
 
 # Keep Chrome browser open after program finishes
 chrome_option = webdriver.ChromeOptions()
@@ -48,7 +48,7 @@ driver = webdriver.Chrome(options=chrome_option) # we will work with chrome
 
 
 
-for i in range(0, len(house_address))
+for i in range(0, len(house_address)):
     driver.get(URL)
     # ADDRESS INPUT
     sleep(2)
@@ -65,3 +65,6 @@ for i in range(0, len(house_address))
     send_button = driver.find_element(By.XPATH, value='//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span/span')
     send_button.click()
     sleep(2)
+
+
+    # DON'T FORGET TO GENERATE THE SHEETS IN OPTIONS OF YORM FORMS, TO GET A GOOD VIEW C:
