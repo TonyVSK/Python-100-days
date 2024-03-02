@@ -11,6 +11,6 @@ def hello_world():
 def say_bye():
     return "Bye"
 
-# or, you can avoid create flask run command just doing this:
+
 if __name__ == "__main__":
     app.run()
