@@ -1,4 +1,4 @@
-# TonyVSK Personal Website
+# Personal Website
 
 This project is a Python-based personal website utilizing Flask, a micro web framework. It's designed to showcase a portfolio and personal interests, particularly in Python programming. The website template was adapted from HTML5 UP.
 
@@ -25,19 +25,19 @@ pip install Flask
 ### Installation
 
 1. Clone the repository:
-\```bash
-git clone https://github.com/your_username_/Project-Name.git
-\```
+```bash
+git clone https://github.com/TonyVSK/Python-100-days/tree/main/Python%20100%20days%20projects/056%20my%20personal%20name%20card
+```
 
 2. Navigate to the project directory:
-\```bash
+```bash
 cd Project-Name
-\```
+```
 
 3. Run the Flask app:
-\```bash
+```bash
 flask run
-\```
+```
 
 ## Usage
 
