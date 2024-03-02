@@ -25,19 +25,19 @@ pip install Flask
 ### Installation
 
 1. Clone the repository:
-\```bash
-git clone https://github.com/your_username/NumberGuessingGame.git
-\```
+```bash
+git clone https://github.com/TonyVSK/Python-100-days/tree/main/Python%20100%20days%20projects/055%20higher%20or%20lower%20URLs
+```
 
 2. Navigate to the project directory:
-\```bash
+```bash
 cd NumberGuessingGame
-\```
+```
 
 3. Run the Flask app:
-\```bash
+```bash
 flask run
-\```
+```
 
 ## How to Play
 
