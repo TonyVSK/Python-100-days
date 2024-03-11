@@ -4,10 +4,25 @@
 	<title>Access Denied</title>
 </head>
 <body>
-	<div class="container">
-		<h1>Access Denied </h1>
-		<iframe src="https://giphy.com/embed/1xeVd1vr43nHO" width="480" height="271" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-		<p><a href="https://giphy.com/gifs/cheezburger-funny-dog-fails-1xeVd1vr43nHO">via GIPHY</a></p>
-	</div>
+
+
+	{% extends "base.html" %} <!--We can get Inheriting Templates using jinja with this command-->
+	{% block title %}Access Denied{% endblock %}
+	{% block styling %} <!--this will inject all the code in the styling block to this child page-->
+		{‌{ super() }}
+		h1 {
+			color:red;
+		}
+	{% endblock %}
+	{% block content %}
+		<div class="container">
+			<h1>Access Denied </h1>
+			<iframe src="https://giphy.com/embed/1xeVd1vr43nHO" width="480" height="271" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+			<p><a href="https://giphy.com/gifs/cheezburger-funny-dog-fails-1xeVd1vr43nHO">via GIPHY</a></p>
+		</div>
+	{% endblock %}
+
+
+
 </body>
 </html>
