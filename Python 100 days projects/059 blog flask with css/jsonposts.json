@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "title": "I need to sleep more!",
+      "subtitle":"One of my biggest problems nowadays",
+      "body": "Yeah... Just sleeping 3 hours a day isn't enough time, but coffee always helps me with that... Don't you agree? well, probably not (so tired that I'm typing all my texts wrong)"
+    },
+    {
+      "id": 2,
+      "title": "What to think about IA",
+      "subtitle":"A new technology like this is necessary or a risk?",
+      "body": "We honestly have to try to understand how artificial intelligence actually works to avoid problems such as disproportionate alarmism, or total ignorance on the subject."
+    },
+    {
+      "id": 3,
+      "title": "And if the future would similar to cyberpunk?",
+      "subtitle":"a reflection about dystopian society",
+      "body": "Cyberpunk has a unique and interesting aesthetic in which it highlights a dystopian future, full of technological innovations, excessive use of lights and neon, and large buildings that shine to the eye, but at the same time it is terrifying due to the chaotic lives that people tend to have. , where misery reigns on any street or corner, and violence arises as a consequence of such problems... Crazy to think about that every now and then"
+    }
+  ]
