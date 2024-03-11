@@ -37,9 +37,24 @@ def contact_file():
     return render_template("contact.html")
 
 
-@app.route("/post.html")
-def post_file():
-    return render_template("post.html")
+
+
+
+@app.route("/post/index.html")
+def post_index_file():
+    return render_template("index.html", blog=blog)
+
+
+@app.route("/post/about.html")
+def post_about_file():
+    return render_template("about.html")
+
+
+@app.route("/post/contact.html")
+def post_contact_file():
+    return render_template("contact.html")
+
+
 
 
 
