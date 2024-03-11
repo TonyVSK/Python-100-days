@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Email, Length, AnyOf
 
 
 
@@ -12,10 +12,19 @@ from wtforms.validators import DataRequired
 
 
 class LoginForm(FlaskForm):
-    email = StringField(label='Email', validators=[DataRequired()])
-    password = PasswordField(label='Password', validators=[DataRequired()])
-    submit = SubmitField(label="Log in", validators=[DataRequired()])
+    email = StringField(label='Email', validators=[DataRequired(), 
+                                                   Email(),  
+                                                   AnyOf(values=["admin@email.com"])])
+    password = PasswordField(label='Password', validators=[DataRequired(),
+                                         Length(min=8,
+                                                max=20,
+                                                message="At least 8 characters")])
+    submit = SubmitField(label="Log in")
 
+
+
+
+    
 
 app = Flask(__name__)
 app.secret_key = "any-string-you-want-just-keep-it-secret"
@@ -31,9 +40,21 @@ def home():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    
     login_form = LoginForm()
     login_form.validate_on_submit()
-    return render_template('login.html', form=login_form)
+    
+    render_template('login.html', form=login_form)
+
+    if request.method == 'GET':
+        return render_template('login.html', form=login_form)
+    
+    if login_form.validate_on_submit():
+        return render_template('success.html')
+    else:
+        return render_template('denied.html')
+    
+    # return render_template('login.html', form=login_form)
 
 
 
