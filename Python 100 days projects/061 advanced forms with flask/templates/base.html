@@ -1,17 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+
+    {% block styles %}
+    <!-- Adding Bootstrap-Flask styling here -->
+    {{ bootstrap.load_css() }} {% endblock %}
+
     <title>{% block title %}{% endblock %}</title>
-        <style>
-        {% block styling %}
-        body{
-            background: purple;
-        }
-        {% endblock %}
-        </style>
-</head>
-<body>
+  </head>
+  <body>
     {% block content %}{% endblock %}
-</body>
+  </body>
 </html>
