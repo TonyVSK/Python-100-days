@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 
 # USE YOUR OWN npoint LINK! ADD AN IMAGE URL FOR YOUR POST. 👇
@@ -30,6 +30,16 @@ def show_post(index):
             requested_post = blog_post
     return render_template("post.html", post=requested_post)
 
+
+
+@app.route("/form-entry", methods=["POST"])
+def receive_data():
+    data = request.form
+    print(data["name"])
+    print(data["email"])
+    print(data["phone"])
+    print(data["message"])
+    return "<h1>Successfully sent your message</h1>"
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
