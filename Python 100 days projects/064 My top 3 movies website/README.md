@@ -24,7 +24,7 @@ To set up the project on your local machine:
    
 2. Navigate to the project directory:
    ```
-   cd my-top-3-movies
+   cd 064-my-top-3-movies-website
    ```
 
 3. Install de required packages:
