@@ -107,7 +107,7 @@ try:
             year=2002,
             description="Publicist Stuart Shepard finds himself trapped in a phone booth, pinned down by an extortionist's sniper rifle. Unable to leave or receive outside help, Stuart's negotiation with the caller leads to a jaw-dropping climax.",
             rating=7.3,
-            ranking=10,
+            ranking=1,
             review="My favourite character was the caller.",
             img_url="https://image.tmdb.org/t/p/w500/tjrX2oWRCM3Tvarz38zlZM7Uc10.jpg"
         )
@@ -124,14 +124,31 @@ try:
             year=2022,
             description="Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.",
             rating=7.3,
-            ranking=9,
+            ranking=2,
             review="I liked the water.",
             img_url="https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg"
         )
         db.session.add(second_movie)
         db.session.commit()
 except Exception:
-    print(Exception)
+    pass
+
+# THIRD MOVIE:
+try:
+    with app.app_context():
+        third_movie = Movie(
+            title="Inglorious Basterds",
+            year=2009,
+            description="The film tells an alternate history story of two converging plots to assassinate Nazi Germany's leadership—one planned by Shosanna Dreyfus, a young French Jewish cinema proprietor, and the other planned by the British but ultimately conducted solely by a team of Jewish American soldiers led by First Lieutenant Aldo",
+            rating=10,
+            ranking=3,
+            review="I perfect movie!",
+            img_url="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p193875_p_v7_aq.jpg"
+        )
+        db.session.add(third_movie)
+        db.session.commit()
+except Exception:
+    pass
 # ==============================================================================================================
 
 
@@ -183,7 +200,30 @@ def delete(movie_id):
             db.session.delete(movie_to_delete)
             db.session.commit()
         return redirect(url_for('home'))
-    
+
+
+
+
+@app.route("/update/<int:movie_id>", methods=["GET", "POST"])
+def update(movie_id):
+    movie = Movie.query.get(movie_id)
+    if movie:
+        if request.method == 'POST':
+            movie.title = request.form['title']
+            movie.year = request.form['year']
+            movie.description = request.form['description']
+            movie.rating = request.form['rating']
+            movie.ranking = request.form['ranking']
+            movie.review = request.form['review']
+            movie.img_url = request.form['img_url']
+            db.session.commit()
+            return redirect(url_for('home'))
+        else:
+            return render_template('edit.html', movie=movie)
+    else:
+        return "Movie not found", 404
+
+
 
 
 

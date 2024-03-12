@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Movies{% endblock %}
+
+
+{% block content %}
+<div class="update-form">
+    <h2>Update Movie {{ movie.title }} </h2>
+    <form action="{{ url_for('update', movie_id=movie.id) }}" method="post">
+      <label>Movie Name</label>
+      <input name="title" type="text">
+      <label>Movie Year</label>
+      <input name="year" type="text">
+      <label>Description</label>
+      <input name="description" type="text">
+      <label>Rating</label>
+      <input name="rating" type="text">
+      <br>
+      <br>
+      <br>
+      <label>Raking</label>
+      <input name="ranking" type="text">
+      <label>Review</label>
+      <input name="review" type="text">
+      <label>Image URL</label>
+      <input name="img_url" type="text">
+      <button type="submit">Add Movie</button>
+      <button type="submit">Update Movie</button>
+    </form>
+</div>
+{% endblock %}
