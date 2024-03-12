@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Movie{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1 class="heading">Add a Movie</h1>
+</div>
+
+
+    <form action="{{ url_for('add') }}" method="POST">
+        <label>Movie Name</label>
+        <input name="title" type="text">
+        <label>Movie Year</label>
+        <input name="year" type="text">
+        <label>Description</label>
+        <input name="description" type="text">
+        <label>Rating</label>
+        <input name="rating" type="text">
+        <br>
+        <br>
+        <br>
+        <label>Raking</label>
+        <input name="ranking" type="text">
+        <label>Review</label>
+        <input name="review" type="text">
+        <label>Image URL</label>
+        <input name="img_url" type="text">
+        <button type="submit">Add Movie</button>
+    </form>
+
+{% endblock %}
