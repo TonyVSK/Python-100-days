@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
+import sqlite3
+
 
 '''
 Red underlines? Install the required packages first: 
@@ -12,6 +14,8 @@ pip3 install -r requirements.txt
 
 This will install the packages from requirements.txt for this project.
 '''
+
+
 
 app = Flask(__name__)
 
