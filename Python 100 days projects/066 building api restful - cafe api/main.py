@@ -59,7 +59,7 @@ class Cafe(db.Model):
     
 
 
-    
+
 with app.app_context():
     db.create_all()
 
@@ -100,6 +100,17 @@ def all_cafe():
     result2 = db.session.execute(db.select(Cafe))
     all_cafe2 = result2.scalars().all()
     return jsonify(cafes=[cafe.to_dict() for cafe in all_cafe2])
+
+# Search route to search for cafes at a particular location
+@app.route("/search", methods=["GET"])
+def find_cafe_by_location():
+    query_location = request.args.get("loc") # I can create an argument to endpoint of my API with this function, and the arg is "loc". example: localhost:5000/search?loc=someLoc
+    result = db.session.execute(db.select(Cafe).where(Cafe.location == query_location))
+    all_cafes = result.scalars().all()
+    if all_cafes: # if there is cafes at result variable in line 108?
+        return jsonify(cafes=[cafe.to_dict() for cafe in all_cafes])
+    else:
+        return jsonify(error={"Not Found": "Sorry, we don't have a cafe at that location."}), 404
 # =============================================================================================================================
 # HTTP POST - Create Record
 
