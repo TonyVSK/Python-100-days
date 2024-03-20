@@ -7,7 +7,7 @@ This repository is designed for learning and experimenting with SQLAlchemy along
 To get started, clone this repository to your local machine:
 
 ```
-git clone <repository-url>
+git clone https://github.com/TonyVSK/Python-100-days/tree/main/Python%20100%20days%20projects/065%20learning%20SQL%20module
 ```
 
 Ensure you have Python installed. Then, install the required dependencies:
