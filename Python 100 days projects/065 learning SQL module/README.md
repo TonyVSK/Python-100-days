@@ -1,4 +1,4 @@
-# Projet 65: SQLAlchemy and SQLite Learning Repository
+# SQLAlchemy and SQLite Learning Repository
 
 This repository is designed for learning and experimenting with SQLAlchemy alongside SQLite through Python. It includes practical examples to understand database operations using Flask, SQLAlchemy ORM, and direct SQLite3 connections. Ideal for beginners looking to get hands-on with Python-based database management.
 
