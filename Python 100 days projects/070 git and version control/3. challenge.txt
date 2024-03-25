@@ -1,0 +1,6 @@
+Objective: Apply the knowledge acquired in a more complex and realistic project.
+
+Content:
+.Develop a small software or website as a team.
+.Each member works on a different feature in separate branches.
+.Intensive use of pull requests and merges to integrate functionalities.
