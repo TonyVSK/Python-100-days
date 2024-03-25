@@ -1,7 +1,7 @@
 # Python 100 Days
 
 Welcome to the "Python 100 Days" repository! Here, you'll find 100 different projects, one for each day, ranging from basic concepts to advanced Python applications. This coding journey is perfect for beginners as well as developers looking to sharpen their Python skills.
-(This project follows the Udemy course ['100 days of Code: The Complete Python Pro Bootcamp](https://www.udemy.com/course/100-days-of-code), if you want to learn python, that's my recommendation!
+This project follows the Udemy course ['100 days of Code: The Complete Python Pro Bootcamp](https://www.udemy.com/course/100-days-of-code), if you want to learn python, that's my recommendation!
 
 ## About the Challenge
 
@@ -13,11 +13,24 @@ The projects can be found in [Python 100 days projects folder](./Python%20100%20
 
 Here's a list of projects you'll find in this repository:
 
+### FIRST BASICS: INPUTS, IF, ELSE, WHILE, FOR, FIRST MODULES
 - `001` - Band Name Generator: A simple script to combine user inputs to generate a band name.
 - `002` - Tip Calculator: A tip calculator to help fairly split the bill.
 - `003` - Treasure Island: An interactive text adventure.
 - `004` - Task List: A task manager to organize your day.
 - `005` - Password Generator: A secure password generator.
+
+### BASIC: deeper dive into loop repetition structures
+- `006` - Escaping The Maze.
+- `007` - Hangman.
+- `008` - Caesar Cipher.
+- `009` - Secret Auction.
+- `010` - Calculator.
+- `011` - Blackjack.
+- `012` - The number Guessing Game.
+- `013` - Rock Paper Scissors.
+- `014` - Higher Lower Gamer.
+
 - ... (will be updated as soon as I complete more days)
 
 
