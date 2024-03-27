@@ -1,4 +1,4 @@
-# Bootstrap Practice Project README
+# Bootstrap Practice Project
 
 ## Project Overview
 Welcome to the Bootstrap Practice Project! This project is designed for anyone interested in practicing and understanding the CSS framework Bootstrap. It showcases a variety of Bootstrap components and custom CSS to create an engaging and responsive website. This project is perfect for developers looking to enhance their front-end development skills using Bootstrap.

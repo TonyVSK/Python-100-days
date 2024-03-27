@@ -1,6 +1,15 @@
 {% from "bootstrap5/form.html" import render_form %} {% block content %} {%
 include "header.html" %}
 
+
+
+
+
+
+
+
+
+
 <!-- Page Header -->
 <header
   class="masthead"
@@ -22,8 +31,21 @@ include "header.html" %}
   <div class="container">
     <div class="row">
       <!-- TODO: add a flash message here for users registering twice -->
+
       <div class="col-lg-8 col-md-10 mx-auto">
         <!--TODO: render login form here-->
+        <form action="{{ url_for('login') }}" method="post">
+          <input type="text" name="email" placeholder="Email" required="required" />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required="required"
+          />
+          <button type="submit" class="btn btn-primary btn-block btn-large">
+            Let me in.
+          </button>
+        </form>
       </div>
     </div>
   </div>

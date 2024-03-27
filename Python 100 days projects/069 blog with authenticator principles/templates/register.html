@@ -23,6 +23,12 @@ include "header.html" %}
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <!--TODO: render your registration form here-->
+        <form action="{{ url_for('register') }}" method="post">
+          <input type="text" name="name" placeholder="Name" required="required" />
+        <input type="email" name="email" placeholder="Email" required="required" />
+            <input type="password" name="password" placeholder="Password" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">Sign me up.</button>
+        </form>
       </div>
     </div>
   </div>
