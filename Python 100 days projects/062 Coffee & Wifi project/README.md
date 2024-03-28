@@ -16,7 +16,7 @@ Ensure you have Python 3.x installed on your machine.
 
 ```bash
 git clone https://github.com/TonyVSK/Python-100-days/tree/main/Python%20100%20days%20projects/062%20Coffee%20%26%20Wifi%20project
-cd path-to-this-repo-at-your-pc```
+cd path-to-this-repo-at-your-pc
 ```
 2. **Set up a Virtual Environment (Recommended)**
 
