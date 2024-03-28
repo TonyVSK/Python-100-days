@@ -20,7 +20,7 @@ Here's a list of projects you'll find in this repository:
 - `004` - Task List: A task manager to organize your day.
 - `005` - Password Generator: A secure password generator.
 
-### BASIC: deeper dive into loop repetition structures
+### BASIC: DEEPER DIVE INTO LOOP REPETITION STRUCTURES
 - `006` - Escaping The Maze.
 - `007` - Hangman.
 - `008` - Caesar Cipher.
@@ -30,6 +30,52 @@ Here's a list of projects you'll find in this repository:
 - `012` - The number Guessing Game.
 - `013` - Rock Paper Scissors.
 - `014` - Higher Lower Gamer.
+
+### INTERMEDIATE: OBJECT ORIENTED PROGRAMMING, VISUAL INTERFACE GUI, ARCADE GAMES, DIRECTORIES AND PATH, JSON STRUCTURE, DATA SCRAPING, API, WEB FOUNDATION
+- `015` - The Coffee Machine.
+- `016` - OOP Coffee Machine.
+- `017` - The Quiz Project.
+- `018` - Turtle & The Graphical User Interface (gui).
+- `019` - Etch-A-Sketch.
+- `020` - Turtle Race.
+- `021` - Snake Game.
+- `022` - Pong Game.
+- `023` - The Turtle Crossing.
+- `024` - Files, Directories And Paths.
+- `025` - Pandas Library.
+- `026` - NATO Alphabet Project.
+- `027` - NATO alphabet project.
+- `028` - Mile to Kilometers Converter Project.
+- `029` - Pomodoro Project.
+- `030` - Password Manager GUI App.
+- `031` - Flash Card App.
+- `032` - Automated Birthday Wisher.
+- `033` - API Requests.
+- `034` - Quizzler App With API.
+- `035` - Rain Alert With API.
+- `036` - Company Stock Prices With API.
+- `037` - Habit Track Project.
+- `038` - Workout Tracking Using Google Sheets.
+- `039` - Cheap Flight Finder.
+- `040` - Cheap Flight Finder - Creating Users.
+- `041` - Movie Ranking (web foundation with Python).
+- `042` - Birthday Invite Website.
+- `043` - Colour Vocab Website.
+- `044` - Motivional Poster Website.
+- `045` - Web Scraping - 100 Movies To Watch.
+- `046` - Spotify Playlist Using The Musical Time Machine.
+- `047` - Amazon Price Tracker.
+- `048` - Game Playing Bot.
+- `049` - Automating Job Apllications On Linkedin.
+- `050` - Auto Tinder Swiping Bot.
+- `051` - Interned Speed Twitter Complaint Bot.
+- `052` - Instagram Follower Bot.
+- `053` - Data Entry Job Automation.
+- `054` - Web Development.
+- `055` - Higher Or Lower URLs.
+- `056` - My Personal Name Card.
+- `057` - Templating With Jinja In Flask Applications.
+- `058` - Startup Website For Tindog.
 
 - ... (will be updated as soon as I complete more days)
 
