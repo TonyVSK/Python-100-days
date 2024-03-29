@@ -97,3 +97,4 @@ To run any project, clone the repository and navigate to the desired project fol
 git clone https://github.com/TonyVSK/Python-100-days.git
 cd Python-100-Days/001_band_name_generator
 python main.py
+```
