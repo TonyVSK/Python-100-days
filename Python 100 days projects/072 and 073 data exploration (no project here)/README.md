@@ -1,4 +1,4 @@
-# Folder 072: Understanding Data Exploration with Pandas
+# Folder 072 and 073: Understanding Data Exploration with Pandas
 
 In this folder we don't have a specific project, the 100 days of code class is focused on learning some online tools to use python and ork with some modules, such as pandas.
 So I decided to explain about it
@@ -25,6 +25,10 @@ To see the first 5 lines of the file, just use the df.head() command
 
 And that's it! Now we can manipulate our data online, with this tool.
 
+
+Basically, the course sugests to use 2 csv files to make some data analysis, one for day 072, and another one for 073.
+The 072 is salarues_by_college_major.csv
+the 073 is QueryResults.csv
 ## Contribution
 
 Feel free to contribute anything I'm missing.
