@@ -1,0 +1,44 @@
+# U.S. States Game - Data Analysis with Pandas
+
+This repository contains a Python script that serves as an educational tool for learning U.S. states' names and their locations on a map. The script utilizes the Pandas library for data analysis and the Turtle library for visual representation.
+
+## Structure
+
+The repository includes the following files:
+
+- **`main.py`**: The main Python script responsible for running the U.S. States Game.
+- **`50_states.csv`**: A CSV file containing data about the U.S. states, including their names, x and y coordinates for positioning on the map.
+- **`blank_states_img.gif`**: An image file representing the blank map of the U.S. states.
+
+## How It Works
+
+1. The script reads the data from the CSV file using Pandas, extracting the names of all 50 U.S. states.
+2. It then prompts the user to input the names of the states they know.
+3. The script checks the user's input against the list of states. If the input matches a state name, the script displays the name of the state on the map.
+4. The user continues to input state names until they have correctly identified all 50 states or choose to exit the program.
+
+## Running the Game
+
+To run the U.S. States Game:
+
+1. Ensure you have Python installed on your system.
+2. Clone this repository to your local machine.
+3. Open a terminal and navigate to the directory where the repository is cloned.
+4. Run the `main.py` script using Python: `python main.py`.
+5. Follow the on-screen instructions to input the names of U.S. states.
+6. Close the game window when finished.
+
+## Dependencies
+
+This project requires the following dependencies:
+
+- Python 3.11
+- Pandas library
+- Turtle library
+
+## Notes
+
+- The game allows users to test their knowledge of U.S. states' names and locations in a fun and interactive way.
+- Users can exit the game at any time by typing "Exit" when prompted for a state name.
+
+Feel free to explore the code and customize it according to your preferences or extend its functionality to include additional features.
