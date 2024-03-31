@@ -77,6 +77,24 @@ Here's a list of projects you'll find in this repository:
 - `057` - Templating With Jinja In Flask Applications.
 - `058` - Startup Website For Tindog.
 
+### ADVANCED: WEB FOUNDATION BOOTSTRAP, FLASK, API REQUESTS POST-GET-PUT-PATCH, API RESTFUL, DATA ANALISYS GOOGLE COLAB
+- `059` - Blog Flask With CSS.
+- `060` - Post Requests With Flask And HTML Forms.
+- `061` - Advanced Forms With Flask.
+- `062` - Coffee & Wifi Project.
+- `063` - Databases SQL - Virtual Bookshelf.
+- `064` - My Top 3 Movies Website.
+- `065` - Learning SQL Module.
+- `066` - Building API RESTful - Cafe API.
+- `067` - Blog With RESTful API.
+- `068` - Authentication With Flask.
+- `069` - Blog With Authenticator Principles.
+- `070` - Git and Version Control.
+- `071` - Deploying Web Application.
+- `072 to 075` - Data Exploration (No Project Here).
+
+Note: 
+in the folder `072 to 075` - Data Exploration (No Project Here), the projects are theoretical classes offered online in the 100 days of code course and direct practices on Google Colab, so there are no projects in code itself and it is not well developed .
 - ... (will be updated as soon as I complete more days)
 
 
