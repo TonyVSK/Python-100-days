@@ -29,6 +29,27 @@ And that's it! Now we can manipulate our data online, with this tool.
 Basically, the course sugests to use 2 csv files to make some data analysis, one for day 072, and another one for 073.
 The 072 is salarues_by_college_major.csv
 the 073 is QueryResults.csv
+
+
+
+
+## Folder 074
+
+Inside this folder, we have the day 074 folders, the idea is  deep into a dataset all about LEGO, to see how to get informations about, for example, history of lego, product offering etc.
+
+### Idea - what to learn with 074
+* How to combine a Notebook with HTML Markup.
+
+* Apply Python List slicing techniques to Pandas DataFrames.
+
+* How to aggregate data using the .agg() function.
+
+* How to create scatter plots, bar charts, and line charts with two axes in Matplotlib.
+
+* Understand database schemas that are organised by primary and foreign keys.
+
+* How to merge DataFrames that share a common key
+
 ## Contribution
 
 Feel free to contribute anything I'm missing.
