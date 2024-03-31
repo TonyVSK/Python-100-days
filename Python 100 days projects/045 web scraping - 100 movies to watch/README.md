@@ -1,29 +1,40 @@
-## 100 Movies that You Must Watch
+# ## 100 Movies that You Must Watch: Empire Online Best Movies Scraper
 
-# Objective
+This Python script scrapes data from a web archive of Empire Online's "Best Movies" webpage and extracts movie titles to a text file.
 
-Scrape the top 100 movies of all time from a website. Generate a text file called `movies.txt` that lists the movie titles in ascending order (starting from 1). 
-The result should look something like this:
+## Overview
 
-```
-1) The Godfather
-2) The Empire Strikes Back
-3) The Dark Knight
-4) The Shawshank Redemption
-... and so on
-```
-The central idea behind this project is to be able to use BeautifulSoup to obtain some data - like movie titles - from a website like Empire's (or from, say Timeout or Stacker that have curated similar lists). 
+The script accesses a snapshot of Empire Online's webpage from the Internet Archive and extracts the titles of the best movies featured on the page.
 
-### ⚠️ Important: Use the Internet Archive's URL
+## Functionality
 
-Since websites change very frequently, **use this link** 
-```
-URL = "https://web.archive.org/web/20200518073855/https://www.empireonline.com/movies/features/best-movies-2/"
-```
-from the Internet Archive's Wayback machine. That way your work will match the solution video.
+1. **Web Scraping**:
+   - Utilizes the `requests` library to retrieve the HTML content of the archived webpage.
+   - Parses the HTML content using BeautifulSoup (`bs4`) to extract movie titles.
 
-(Do *not* use https://www.empireonline.com/movies/features/best-movies-2/ which I've used in the screen recording)
+2. **Data Extraction**:
+   - Finds all `<h3>` elements with the class `title`, which typically contain movie titles.
+   - Extracts the text of these elements to obtain a list of movie titles.
 
-# Solution
+3. **Writing to File**:
+   - Writes the extracted movie titles to a text file named `movies.txt`, with each title on a separate line.
 
-You can find the code from my walkthrough and solution as a downloadable .zip file in the course resources for this lesson. 
+## Running the Script
+
+1. Ensure you have the necessary Python packages installed, including `requests` and `BeautifulSoup`.
+2. Update the `URL` variable with the link to the desired webpage or archive snapshot.
+3. Run the script to initiate the scraping and writing process.
+
+## Output
+
+The script generates a text file named `movies.txt`, which contains a list of movie titles extracted from the specified webpage or archive snapshot.
+
+## Limitations
+
+- The script relies on the specific structure and class names of the HTML elements on the webpage. Changes to the webpage structure may require modifications to the script.
+- Ensure ethical use of web scraping techniques and comply with the terms of service of the website being scraped.
+
+## Contributions
+
+Contributions to this project, including bug fixes, feature enhancements, and documentation improvements, are welcome. If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
+
