@@ -12,12 +12,12 @@ Ensure you have Python installed on your system. If not, you can download and in
 
 ### Running the Script
 
-1. Clone this repository to your local machine or download the `band_name_generator.py` file directly.
+1. Clone this repository to your local machine or download the `main.py` file directly.
 2. Open your terminal or command prompt.
-3. Navigate to the directory where the `band_name_generator.py` file is located.
+3. Navigate to the directory where the `main.py` file is located.
 4. Run the script by typing the following command and pressing Enter:
     ```
-    python band_name_generator.py
+    python main.py
     ```
 
 ## Usage

@@ -5,7 +5,7 @@ The Caesar Cipher is a classic encryption technique that shifts the letters of a
 ## Project Overview
 
 The project consists of a single Python file:
-- `caesar_cipher.py`: Contains functions for encoding and decoding messages using the Caesar Cipher, as well as the main program logic.
+- `main.py`: Contains functions for encoding and decoding messages using the Caesar Cipher, as well as the main program logic.
 
 ## Features
 
@@ -26,7 +26,7 @@ The project consists of a single Python file:
 
 ## How to Use
 
-1. Run the `caesar_cipher.py` file.
+1. Run the `main.py` file.
 2. Choose whether you want to encode or decode a message.
 3. Enter the message you want to encrypt or decrypt.
 4. Specify the shift number.
