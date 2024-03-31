@@ -1,4 +1,4 @@
-# Folder 072 and 073: Understanding Data Exploration with Pandas
+# Folder 072 and 073: Understanding Data Exploration With Pandas
 
 In these folders, we don't have a specific project. The "100 Days of Code" class focuses on learning online tools for using Python and working with modules, such as Pandas. Thus, I've decided to explain about it.
 
